@@ -87,3 +87,4 @@ delete from tb_emp;
 ```
 #### DQL Date Query Language (数据查询语言）
 # select 
+![image](https://github.com/Qiluzz/MySql/assets/4120789/d397beca-a728-4955-9a0f-0161682214ac)
