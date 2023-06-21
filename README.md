@@ -92,3 +92,65 @@ delete from tb_emp;
 ![image](https://github.com/Qiluzz/MySql/assets/4120789/26b8d7a3-994d-47f1-9128-6cdfbf124dfe)
 
 ![image](https://github.com/Qiluzz/MySql/assets/4120789/e3581da0-8f75-4f48-9a81-bd44dfaecb7d)
+
+![image](https://github.com/Qiluzz/MySql/assets/4120789/e188a65a-e41f-42c2-8f98-00a17a772d4c)
+
+![image](https://github.com/Qiluzz/MySql/assets/4120789/31b16098-639a-4419-bcde-867c084ff86d)
+
+![image](https://github.com/Qiluzz/MySql/assets/4120789/e46e6780-8646-4be6-978d-62e0c8f56056)
+
+![image](https://github.com/Qiluzz/MySql/assets/4120789/7ad5ce22-3221-451b-8664-cbadec1147c0)
+```mysql
+select * from tb_emp, tb_dept where tb_emp.dept_id = tb_dept.id;
+
+-- ---------------内连接-------
+-- A.查询员工的姓名，及所属部门名称
+select tb_emp.name, tb_dept.name from tb_emp, tb_dept where tb_dept.id = tb_emp.dept_id;
+
+-- 起别名
+select e.name, d.name from tb_emp e, tb_dept d where e.dept_id = d.id;
+
+select tb_emp.name, td.name from tb_emp inner join tb_dept td on tb_emp.dept_id = td.id;
+
+-- 外连接
+
+-- 左外连接
+select tb_emp.name, td.name from tb_emp left outer join tb_dept td on tb_emp.dept_id = td.id;
+
+select tb_emp.name, td.name from tb_emp right outer join tb_dept td on tb_emp.dept_id = td.id
+
+-- 子查询
+
+-- 标量子查询
+select id from tb_dept where name = '教研部';
+
+select * from tb_emp where dept_id = (select id from tb_dept where name = '教研部');
+
+select entrydate from tb_emp where name = '方东白';
+
+select *
+from tb_emp
+where entrydate > (select entrydate from tb_emp where name = '方东白');
+
+-- 列子查询
+
+select id from tb_dept where name='教研部' or name = '咨询部';
+
+select * from tb_emp where dept_id in (select id from tb_dept where name='教研部' or name = '咨询部')
+
+-- 行子查询
+
+select entrydate, job from tb_emp where name = '韦一笑';
+
+select * from tb_emp where entrydate = '2007-01-01' and job = 2;
+
+select * from tb_emp where (entrydate , job) = (select entrydate, job from tb_emp where name = '韦一笑')
+
+-- 表子查询
+select * from tb_emp where entrydate > '2006-10-01'
+
+select * from (select * from tb_emp where entrydate > '2006-10-01') e, tb_dept where e.dept_id = tb_dept.id;
+```
+
+
+
