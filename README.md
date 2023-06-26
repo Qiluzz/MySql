@@ -152,5 +152,60 @@ select * from tb_emp where entrydate > '2006-10-01'
 select * from (select * from tb_emp where entrydate > '2006-10-01') e, tb_dept where e.dept_id = tb_dept.id;
 ```
 
+```mysql
+select *
+from category
+where id in (select category_id from dish where price < 10);
+
+select dish.name, dish.price, category.name
+from dish,
+     category
+where dish.price < 10
+  and dish.category_id = category.id;
+
+select dish.name, dish.price, c.name, dish.status
+from dish
+         left join category c on c.id = dish.category_id
+where price between 10 and 50
+  and dish.status = 1;
+
+select max(price)
+from dish;
+select *
+from dish,
+     category
+where dish.category_id = category.id
+  and price = (select max(price) from dish);
+
+select c.name, max(d.price)
+from dish d,
+     category c
+where d.category_id = c.id
+group by c.name;
+
+select count(*), c.name
+from dish d,
+     category c
+where d.category_id = c.id
+  and d.status = 1
+group by c.name
+having count(*) >= 3;
+
+select setmeal.name, setmeal.price, d.name, d.price, sd.copies
+from setmeal
+         left join setmeal_dish sd on setmeal.id = sd.setmeal_id
+         left join dish d on sd.dish_id = d.id
+where setmeal.name = '商务套餐A';
+
+select s.name, s.price, d.name, d.price, sd.copies
+from setmeal s,
+     setmeal_dish sd,
+     dish d
+where s.id = sd.setmeal_id
+  and sd.dish_id = d.id
+  and s.name = '商务套餐A';
+
+select name, price from dish where price < (select avg(price) from dish);
+```
 
 
