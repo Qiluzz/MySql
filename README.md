@@ -207,5 +207,9 @@ where s.id = sd.setmeal_id
 
 select name, price from dish where price < (select avg(price) from dish);
 ```
+#### 事务
+一组操作的集合，这组操作要么全部成功，要么全部失败
+![image](https://github.com/Qiluzz/MySql/assets/4120789/f6249166-9c33-4a39-ada3-8d6e95d3816f)
 
+![image](https://github.com/Qiluzz/MySql/assets/4120789/dc6352ea-785e-40f2-b90b-c8cc8c7df05a)
 
