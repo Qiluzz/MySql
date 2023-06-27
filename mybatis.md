@@ -16,4 +16,5 @@
 ![image](https://github.com/Qiluzz/MySql/assets/4120789/f4194077-9953-4537-90a9-2a5b1058b340)
 ![image](https://github.com/Qiluzz/MySql/assets/4120789/72d94344-6e1d-4598-9afd-2350c333b4f5)
 #### Foreach
+
 ![image](https://github.com/Qiluzz/MySql/assets/4120789/eda56fe6-2174-400c-aa21-4df158f13672)
