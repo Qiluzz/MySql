@@ -75,11 +75,11 @@ insert  into tb_emp(id, username, password, name, gender, image, job, entrydate,
 
 insert  into  tb_emp(username,name,gender, create_time, update_time) values('lining3', 'oo', 1, now(),now()),('lining2', 'oo', 1, now(),now());
 ```
-#update 表名 set 字段名1 = 值1， 字段名2 = 值2，...[where 条件]
-
+# update 表名 set 字段名1 = 值1， 字段名2 = 值2，...[where 条件]
+```mysql
 update tb_emp set name = '张三', update_time=now() where id= 1;
 update tb_emp set entrydate = '2010-01-01', update_time=now();
-
+```
 # delete from 表名 [where 条件]
 ```mysql    
 delete from tb_emp where id = 1;
